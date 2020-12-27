@@ -1,6 +1,14 @@
-<h1><%= @user.name %></h1>
-<h3>Mood: <%= @user.mood %></h3>
-<h3>Height: <%= @user.height %></h3>
-<h3>Happiness: <%= @user.happiness %></h3>
-<h3>Nausea: <%= @user.nausea %></h3>
-<h3>Tickets: <%= @user.tickets %></h3>
+<div class="info">
+    <div class="user_admin">
+        <% if @user.admin %>
+            <p><strong>ADMIN</strong></p>
+        <% end %>
+    </div>
+
+    <p><strong>Name: </strong><%= @user.name %></p>
+    <p><strong>Tickets: </strong><%= @user.tickets %></p>
+    <p><strong>Height: </strong><%= @user.height %></p>
+    <p><strong>Mood: </strong><%= @user.mood %></p>
+    <p><strong>Happiness: </strong><%= @user.happiness %></p>
+    <p><strong>Nausea: </strong><%= @user.nausea %></p>
+</div>

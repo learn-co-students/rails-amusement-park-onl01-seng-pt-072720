@@ -1,9 +1,6 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
     has_many :rides 
     has_many :attractions, through: :rides 
-
-    validates :happiness, presence: true 
-    validates :nausea, presence: true
 
     has_secure_password
     

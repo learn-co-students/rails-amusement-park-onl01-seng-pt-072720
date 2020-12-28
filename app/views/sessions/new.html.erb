@@ -1,15 +1,15 @@
 <%= form_tag({controller: 'sessions', action: 'create', method: 'post'}) do %>
-    <div>
+    <div class="form-group">
         <%= label_tag :name, "Your name:" %>
         <%= collection_select(:user, :name, User.all, :name, :name, prompt: true) %>
     </div>
 
-    <div>
+    <div class="form-group">
         <%= label_tag :password, "Your password:" %>
-        <%= password_field_tag :user_password, :password %>    
+        <%= password_field_tag :user_password, class: "form-control" %>  
     </div>
 
-    <div>
+    <div class="form-group">
         <input type="submit" value="Sign In">
     </div>
 <% end %>

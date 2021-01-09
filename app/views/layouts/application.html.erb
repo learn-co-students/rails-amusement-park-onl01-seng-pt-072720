@@ -18,6 +18,13 @@
             <span class="icon-bar"></span>
           </button>
         <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
+        <%# <%if session[:user_id] %> %>
+          <%# <%=a class="navbar-brand" href="/users/show"/>"#{@user.name}'s profile"</a%> %>
+          <%# <a class="navbar-brand" href="/logout"/>Log Out</a> %>
+        <%# <%else %> %>
+          <a class="navbar-brand" href="/users/new"/>Sign Up</a>
+          <a class="navbar-brand" href="/signin"/>Log In</a>
+        <%# <%end%> %>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">

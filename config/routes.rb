@@ -3,12 +3,13 @@ Rails.application.routes.draw do
   root 'welcome#home'
 
   resources :users
+  get '/signup' => 'users#new'
+  post '/signup' => 'users#create'
   get '/signin' => 'sessions#new'
   post '/signin' => 'sessions#create'
-  # get '/users/new' => 'users#new'
-  post '/logout' => 'sessions#destroy'
-  
-  # post '/take_ride' => 'users#ride'
-
+  get '/logout' => 'sessions#destroy'
+  post '/take_ride' => 'users#ride'
+  resources :attractions
+  resources :rides
 
 end

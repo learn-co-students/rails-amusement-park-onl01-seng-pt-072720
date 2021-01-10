@@ -1,0 +1,23 @@
+<%= form_for(@attraction) do |f| %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+    <br>
+    <br>
+    <%= f.label :min_height, "Min. Height required" %><br>
+    <%= f.number_field :min_height %>
+    <br>
+    <br>
+    <%= f.label :happiness_rating, "Happiness Rating (1-5)" %><br>
+    <%= f.number_field :happiness_rating %>
+    <br>
+    <br>
+    <%= f.label :nausea_rating, "Nausea rating (1-5)" %><br>
+    <%= f.number_field :nausea_rating %>
+    <br>
+    <br>
+    <%= f.label :tickets, "Tickets to ride"  %><br>
+    <%= f.number_field :tickets %>
+    <br>
+    <br>
+    <%= f.submit %>
+<% end %>

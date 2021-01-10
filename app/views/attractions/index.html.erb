@@ -1,0 +1,27 @@
+<table>
+    <tr>
+        <td>Name</td>
+        <td>Tickets</td>
+        <td>Min. Height</td>
+        <td>Details</td>
+    </tr>
+
+    <% @attractions.each do |attr| %>
+        <tr>
+            <td><%= attr.name %></td> 
+            <td><%= attr.tickets %></td> 
+            <td><%= attr.min_height %></td>
+            <% if current_user.admin %>
+                <td><%= link_to "Show #{attr.name}", attraction_path(attr) %></td> 
+            <% else %>
+                <td><%= link_to "Go on #{attr.name}", attraction_path(attr) %></td>
+            <% end %> 
+        </tr>
+    <% end %>
+</table>
+<br>
+<% if @user %>
+    <%= link_to "Back to profile", user_profile(@user) %>
+<% else %>
+    <%= link_to "New Attraction", new_attraction_path %>
+<% end %>

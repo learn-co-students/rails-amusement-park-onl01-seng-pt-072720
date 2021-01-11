@@ -18,6 +18,10 @@
             <span class="icon-bar"></span>
           </button>
         <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
+        <a class="navbar-brand" href="<%= session[:user_id] ? user_path(User.find(session[:user_id])) : new_user_path %>"/>
+        <%= session[:user_id] ? "#{User.find(session[:user_id]).name}'s Profile" : "Sign Up" %>
+        </a>
+        <a class="navbar-brand" href="<%= root_url %>"/>Login</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">

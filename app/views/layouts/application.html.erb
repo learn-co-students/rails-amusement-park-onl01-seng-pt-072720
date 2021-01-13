@@ -21,7 +21,7 @@
         <a class="navbar-brand" href="<%= session[:user_id] ? user_path(User.find(session[:user_id])) : new_user_path %>"/>
         <%= session[:user_id] ? "#{User.find(session[:user_id]).name}'s Profile" : "Sign Up" %>
         </a>
-        <a class="navbar-brand" href="<%= session[:user_id] ? signout_path : signin_path %>"/>
+        <a class="navbar-brand" href="<%= session[:user_id] ? signout_path : signin_path %>" id="<%= session[:user_id] ? "Log Out" : "Log In" %>"/>
         <%= session[:user_id] ? "Log Out" : "Login" %>
         </a>
 

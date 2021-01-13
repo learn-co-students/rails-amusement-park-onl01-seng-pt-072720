@@ -1,0 +1,6 @@
+<h1>Login!</h1>
+<%= form_tag sessions_path, method: :post do %>
+    <%= collection_select :user, :name, User.all, :id, :name %>
+    <%= text_field_tag :user_password, nil, placeholder: "Gimme ya secrets!" %>
+    <%= submit_tag "Sign In" %>
+<% end %>

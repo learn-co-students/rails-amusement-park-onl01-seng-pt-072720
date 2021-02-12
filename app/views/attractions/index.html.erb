@@ -1,2 +1,10 @@
-<h1>Attractions#index</h1>
+<h1>Go on a Ride</h1>
 <p>Find me in app/views/attractions/index.html.erb</p>
+<% @attractions.each do |att| %>
+    <%= link_to "Go on #{att.name}", attraction_path(att) if !current_user.admin %><br> 
+    <%= link_to "Show #{att.name}", attraction_path(att) if !!current_user.admin %><br> 
+<% end %>
+<p></p>
+<% if !!User.find(session[:user_id]).admin %>
+    <p><%= link_to "New Attraction", new_attraction_path %></p>
+<% end %>

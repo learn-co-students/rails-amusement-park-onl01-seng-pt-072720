@@ -11,18 +11,18 @@ class Ride < ActiveRecord::Base
         # updates ticket number
         # updates the user's nausea
         # updates the user's happiness
-        if (self.user.tickets < self.attraction.tickets) && (self.user.height < self.attraction.min_height)
-            "Sorry. You do not have enough tickets to ride the #{attraction.name}. You are not tall enough to ride the #{attraction.name}."
-        elsif self.user.tickets < self.attraction.tickets
-            "Sorry. You do not have enough tickets to ride the #{attraction.name}."
-        elsif self.user.height < self.attraction.min_height
-            "Sorry. You are not tall enough to ride the #{attraction.name}."
+        # binding.pry
+        @user = self.user
+        @attraction = self.attraction
+        if (@user.tickets < @attraction.tickets) && (@user.height < @attraction.min_height)
+            "Sorry. You do not have enough tickets to ride the #{@attraction.name}. You are not tall enough to ride the #{@attraction.name}."
+        elsif @user.tickets < @attraction.tickets
+            "Sorry. You do not have enough tickets to ride the #{@attraction.name}."
+        elsif @user.height < @attraction.min_height
+            "Sorry. You are not tall enough to ride the #{@attraction.name}."
         else
-            self.user.tickets -= self.attraction.tickets
-            self.user.nausea += self.attraction.nausea_rating
-            self.user.happiness += self.attraction.happiness_rating
-            self.user.save
-            self.attraction.save
+            @user.update(tickets: @user.tickets - @attraction.tickets, nausea: @user.nausea += @attraction.nausea_rating, happiness: @user.happiness += @attraction.happiness_rating)
+            "Thanks for riding the #{@attraction.name}!"
         end
     end
 end
